@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr" prefix="og: https://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Adjunto-o-Matic</title>
+
+        <link rel="icon" type="image/png" href="images/favicon-96x96.png" sizes="96x96" />
+        <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+        <link rel="shortcut icon" href="images/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-title" content="Adjunto-o-matic" />
+        <link rel="manifest" href="images/site.webmanifest" />
+
+        <link rel="stylesheet" id="main" href="style.css" type="text/css" media="all" />
+    </head>
+<body>
+    <main id="main">
+
+        <header class="header">
+            <img src="images/logo.svg" alt="" class="logo" />
+            <h1 class="logo">Adjunto-o-Matic</h1>
+            <p>Una herramienta para generar variable de adjuntos para Marketing Cloud.</p>
+            <button class="fillForm void" style="max-width: 17ch;" onclick="goToAnchor('formWizard')">Ver un ejemplo</button>
+        </header>
+
+        <aside id="mainContent">
+            <section class="box">
+                
+                <header class="stepHeader">
+                    <span class="stepHeader__num">1</span>
+                    <h3 class="stepHeader__title">Configuración</h3>
+                </header>
+
+                <p class="info">Primero, asegúrate de <strong>subir tu archivo</strong> a Marketing Cloud y luego completa este formulario.</p>
+
+                    <div id="formWizard">
+                        <form name="myForm" id="myForm">
+                            <label for="nombreAdjunto">Nombre del archivo <button class="tip js-modal" data-modal-prefix-class="simple-animatedtransform" data-modal-content-id="help__filename" data-modal-title="Nombre del archivo" data-modal-close-text="&times;" data-modal-close-title="Cerrar">?</button></label>
+                            <input type="text" id="nombreAdjunto" name="nombreAdjunto" autocomplete="off" placeholder="Escribe el nombre aquí..." />
+                            <span role="tooltip">Asegúrate que sea el nombre exacto y con extensión incluída.</span>
+
+                            <label for="claveAdjunto">Clave del cliente <button class="tip js-modal" data-modal-prefix-class="simple-animatedtransform" data-modal-content-id="help__pass" data-modal-title="Clave del cliente" data-modal-close-text="&times;" data-modal-close-title="Cerrar">?</button></label>
+                            <input type="text" id="claveAdjunto" name="claveAdjunto" autocomplete="off" placeholder="Pega la clave aquí..." />
+                            <span role="tooltip">Debes copiar la clave completa.</span>
+
+                            <div class="bttns">
+                                <button type="submit" id="go" class="submit">Crear</button>
+                                <button type="reset" id="del" class="secondary reset">Borrar</button>
+                            </div>
+                        </form>
+                    </div>
+            </section>
+
+            <section class="box hero"> 
+                <header class="stepHeader">
+                    <span class="stepHeader__num">2</span>
+                    <h3 class="stepHeader__title">Código</h3>
+                </header>
+            <p>Esta es la versión para copiar y pegar directamente por ejemplo, en el editor de Marketing Cloud.</p>
+
+            <div class="mail">
+                <textarea type="text" id="codeOut" rows="4" placeholder="Aquí saldrá el código…" readonly></textarea>
+            </div>
+            <button id="getCode" class="action copy disabled">Copiar código</button>
+
+            <figure id="hiddenStep" class="cast hide">
+                <p>Ahora debes <strong>agregar</strong> un cuadro de texto o de código y <strong>pegar el código</strong> dónde quieras:</p>
+                <img src="images/editor_mkt.gif" loading="lazy" alt="Ejemplo MKT" />
+            </figure>
+
+            </section>
+
+        </aside> 
+
+    </main> 
+
+    <footer class="footer">
+        Hecho con &hearts; por <a href="https://darriagada.com/?rel=email-attachments">@notdarriagada</a>
+    </footer>
+    </main>
+
+    <div id="help__filename" class="hidden">
+        <p>El nombre de archivo debe ser tal cual está en el repositorio de MKTCloud. Por compatabilidad, asegúrate de evitar tildes, carácteres especiales o doble espacio.</p>
+    </div>
+
+    <div id="help__pass" class="hidden">
+        <p>Esta variable es el identificador único de archivo, así se evitan problemas con archivos similares. La clave la encuentras una vez que subas el archivo. Aparecerá en la columna <strong>Clave del cliente</strong>, y al lado habrá un botón que dice Copiar.</p>
+    </div>
+
+<div id="snackbar"></div>
+<script type="text/javascript" src="main.js"></script>
+<script type="text/javascript" src="js/van11y-accessible-modal-window-aria.es6.js"></script>
+</body>    
+</html>
